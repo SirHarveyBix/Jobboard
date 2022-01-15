@@ -1,8 +1,8 @@
 import Head from 'next/head';
 import { Header } from '../components/Header';
 import { gql } from '@apollo/client';
-import { JobItem } from '../components/Home/JobItem';
 import { client } from './api/apollo';
+import { JobList } from '../components/Home/JobList';
 
 export default function Home(props) {
   const { allJobs } = props;
@@ -15,9 +15,7 @@ export default function Home(props) {
       </Head>
 
       <Header />
-      <div>
-        {!allJobs ? 'Loading' : allJobs[0]?.map((item) => <JobItem key={item.id} {...item} />)}
-      </div>
+      <JobList allJobs={allJobs} />
     </>
   );
 }
@@ -49,7 +47,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      allJobs: allJobs,
+      allJobs,
     },
   };
 }
