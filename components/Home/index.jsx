@@ -5,10 +5,8 @@ import { JobList } from '../../pages/JobList';
 
 export const Home = () => {
   return (
-    <>
-      <Container>
-        <JobList />
-      </Container>
-    </>
+    <Container>
+      <JobList />
+    </Container>
   );
 };
