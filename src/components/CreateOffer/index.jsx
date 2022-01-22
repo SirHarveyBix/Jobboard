@@ -41,7 +41,7 @@ const CreateOffer = ({ user }) => {
 
   if (loading) return 'Posting, wait!';
   if (error) return `Posting error: ${error.message}`;
-  console.log(user);
+
   if (user !== 'true')
     return (
       <>
