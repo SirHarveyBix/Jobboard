@@ -22,6 +22,9 @@ const typeDefs = gql`
     localization: String
     publishedAt: String
   }
+  input JobInput {
+    id: ID!
+  }
   # Query :
   type Query {
     getAllJobs: [Job!]!
@@ -29,6 +32,7 @@ const typeDefs = gql`
   # Mutations :
   type Mutation {
     createJob(data: CreateJobInput): Job
+    deleteJob(data: JobInput): Job!
   }
 `;
 export default typeDefs;
