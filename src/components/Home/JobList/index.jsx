@@ -13,8 +13,14 @@ export const JobList = (props) => {
         ? 'Loading'
         : allJobs?.map((item) => (
             <>
-              {isConnected ? <Delete onClick={() => console.log(item.id)}>Supprimer</Delete> : null}
-              <JobItem key={item.id} {...item} />
+              {isConnected ? (
+                <Container key={item.id}>
+                  <Delete onClick={() => console.log(item.id)}>Supprimer</Delete>
+                  <JobItem {...item} />
+                </Container>
+              ) : (
+                <JobItem key={item.id} {...item} />
+              )}
             </>
           ))}
     </Container>
